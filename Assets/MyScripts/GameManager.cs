@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static GameManager Instance;
 
-    public int Score;
+    public int Score=0;
     public int PlayerLives=3;
     // Start is called before the first frame update
 
@@ -18,11 +19,18 @@ public class GameManager : MonoBehaviour
         Score = 0;
         CurrentCheckPoint = null;
         Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        GUIManager.Instance.UpdateLives(PlayerLives);
+        GUIManager.Instance.UpdateScore(Score);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerLives == 0)
+        {
+            PlayerLives = -1;
+            SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+        }
     }
 }

@@ -7,10 +7,13 @@ public class CheckPointScript : MonoBehaviour
     [HideInInspector]
     public bool IsChecked;
 
+    private SpriteRenderer Sprite;
+
     private void Start()
     {
         //gameObject.GetComponent<ParticleSystem>().;
         IsChecked = false;
+        Sprite=gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +22,7 @@ public class CheckPointScript : MonoBehaviour
         {
             GameManager.Instance.CurrentCheckPoint = gameObject.transform;
             IsChecked = true;
+            Sprite.color = Color.blue;
            
         }
     }
