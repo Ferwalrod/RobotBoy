@@ -39,18 +39,21 @@ public class MousePointer : MonoBehaviour
             ThrowShuriken();
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            UseHook();
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse1))
+        //{
+        //    UseHook();
+        //}
     }
+
+
+
     void UseHook()
     {
         Vector3 HookVector= (this.gameObject.transform.position - Player.transform.position).normalized;
         Debug.LogError("ImpulseVector=>" + HookVector.ToString());
         Vector2 HookVector2D = new Vector2(HookVector.x, HookVector.y);
         Debug.LogError("ImpulseVector2D=>" + HookVector2D.ToString());
-        Player.GetComponent<Rigidbody2D>().AddForce(HookVector2D*HookImpulse, ForceMode2D.Impulse);
+        Player.GetComponent<Rigidbody2D>().AddForce(HookVector2D*HookImpulse,ForceMode2D.Impulse);
         Debug.LogError("FinalImpulse=>" + HookVector2D * HookImpulse);
     }
     void ThrowShuriken()
