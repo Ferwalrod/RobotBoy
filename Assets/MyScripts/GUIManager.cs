@@ -10,6 +10,7 @@ public class GUIManager : MonoBehaviour
     public static GUIManager Instance=null;
     public Text LiveText;
     public Text ScoreText;
+    public Text ShurikenText;
 
     void Start()
     {
@@ -25,5 +26,9 @@ public class GUIManager : MonoBehaviour
     public void UpdateScore(int incoming)
     {
         ScoreText.text = "Score:" + " " + incoming.ToString();
+    }
+    public void UpdateShurikenCharges(int incoming)
+    {
+        ShurikenText.text = incoming.ToString();
     }
 }

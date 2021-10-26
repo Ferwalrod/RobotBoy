@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LiveCount
   - ScoreCount
+  - MousePointer
   layers:
   - Default
   - TransparentFX

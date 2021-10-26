@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public Transform CurrentCheckPoint;
     [HideInInspector]
     public static GameManager Instance;
+    [HideInInspector]
+    public MousePointer Pointer;
 
     public int Score=0;
     public int PlayerLives=3;
@@ -19,9 +21,11 @@ public class GameManager : MonoBehaviour
         Score = 0;
         CurrentCheckPoint = null;
         Instance = this;
+        Pointer = GameObject.FindGameObjectWithTag("MousePointer").GetComponent<MousePointer>();
         DontDestroyOnLoad(this.gameObject);
         GUIManager.Instance.UpdateLives(PlayerLives);
         GUIManager.Instance.UpdateScore(Score);
+        GUIManager.Instance.UpdateShurikenCharges(Pointer.ShurikenCharges);
     }
 
     // Update is called once per frame
