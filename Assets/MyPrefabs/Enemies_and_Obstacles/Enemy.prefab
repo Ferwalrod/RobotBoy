@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7048356555972904556}
-  - component: {fileID: 465439095203598877}
   - component: {fileID: 8692304385701951030}
   - component: {fileID: 7049697899030649566}
   m_Layer: 0
@@ -36,18 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &465439095203598877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880007160181905616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2359f93d727e4964f907ab1390e9514a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &8692304385701951030
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -76,6 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2359f93d727e4964f907ab1390e9514a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_speed: 0
+  IsPatrolling: 0
+  minDistance: 0
+  patrolPositions: []
 --- !u!1 &1601395029345870059
 GameObject:
   m_ObjectHideFlags: 0

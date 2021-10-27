@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2824064710486382289}
   - component: {fileID: 8824515301749306860}
   - component: {fileID: 9046909772676883803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StickyBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 7560309545698540396}
   - component: {fileID: 7560309545698540399}
   - component: {fileID: 1933230459141542290}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
