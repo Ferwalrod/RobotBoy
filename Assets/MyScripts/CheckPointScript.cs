@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CheckPointScript : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class CheckPointScript : MonoBehaviour
 
     private SpriteRenderer Sprite;
     private ParticleSystem Particles;
+    private Light2D Light;
 
     private void Start()
     {
         Particles = gameObject.GetComponentInChildren<ParticleSystem>();
+        Light = gameObject.GetComponent<Light2D>();
+        Light.enabled = false;
         if (Particles != null)
         {
             var emision = Particles.emission;
@@ -35,6 +39,7 @@ public class CheckPointScript : MonoBehaviour
             Sprite.color = Color.cyan;
             var emision = Particles.emission;
             emision.enabled = true;
+            Light.enabled = true;
             gameObject.GetComponent<AudioSource>().Play();
            
         }
