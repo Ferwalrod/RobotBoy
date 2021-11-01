@@ -8,8 +8,12 @@ public class Skuriken : MonoBehaviour
     [SerializeField]
     public float m_Speed;
 
+    [SerializeField]
+    public ParticleSystem Explosive;
+
     IEnumerator Start()
     {
+        Explosive.Stop();
         yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
     }
@@ -31,7 +35,11 @@ public class Skuriken : MonoBehaviour
             if (interactuable.Type.Equals(ShurikenInteractuable.InteractuableType.DESTRUCTIBLE))
             {
                 Destroy(interactuable.gameObject);
-                Destroy(this.gameObject);
+                Explosive.Play();
+                gameObject.GetComponent<TrailRenderer>().enabled = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(this.gameObject,Explosive.main.duration);
             }
             else
             {

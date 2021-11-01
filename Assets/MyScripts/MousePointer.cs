@@ -58,6 +58,15 @@ public class MousePointer : MonoBehaviour
     }
     void ThrowShuriken()
     {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        if (audio != null && audio.clip != null)
+        {
+            audio.Play();
+        }
+        else
+        {
+            Debug.LogError("Sound not found");
+        }
         Rigidbody2D ShurikenThrow = Instantiate(Shuriken, Player.transform.position, Quaternion.Euler(0f, 0f, 0f));
         Vector3 bug = this.gameObject.transform.position - Player.transform.position;
         bug.z = 0f;

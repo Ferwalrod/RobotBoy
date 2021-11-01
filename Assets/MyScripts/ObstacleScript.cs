@@ -35,6 +35,7 @@ public class ObstacleScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.enabled = false;
+            gameObject.GetComponent<AudioSource>().Play();
             if (GameManager.Instance.CurrentCheckPoint == null)
             {
                 collision.transform.position = Vector3.zero;

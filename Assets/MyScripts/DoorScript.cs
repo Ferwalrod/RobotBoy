@@ -24,6 +24,7 @@ public class DoorScript : MonoBehaviour
         if(collision.tag=="Player" && Unlocked)
         {
             Animation animation = gameObject.GetComponent<Animation>();
+            gameObject.GetComponent<AudioSource>().Play();
             animation.Play();
 
             yield return new WaitForSeconds(5.0f);

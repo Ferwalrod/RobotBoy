@@ -27,6 +27,7 @@ public class ShurikenInteractuable : MonoBehaviour
             {
                 attachedDoor.Unlocked = true;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                gameObject.GetComponent<AudioSource>().Play();
             }
             else if (attachedDoor != null)
             {

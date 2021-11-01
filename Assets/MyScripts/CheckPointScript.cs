@@ -8,10 +8,20 @@ public class CheckPointScript : MonoBehaviour
     public bool IsChecked;
 
     private SpriteRenderer Sprite;
+    private ParticleSystem Particles;
 
     private void Start()
     {
-        //gameObject.GetComponent<ParticleSystem>().;
+        Particles = gameObject.GetComponentInChildren<ParticleSystem>();
+        if (Particles != null)
+        {
+            var emision = Particles.emission;
+            emision.enabled = false;
+        }
+        else
+        {
+            Debug.LogError("No se encontro el particle system");
+        }
         IsChecked = false;
         Sprite=gameObject.GetComponentInChildren<SpriteRenderer>();
     }
@@ -22,7 +32,10 @@ public class CheckPointScript : MonoBehaviour
         {
             GameManager.Instance.CurrentCheckPoint = gameObject.transform;
             IsChecked = true;
-            Sprite.color = Color.blue;
+            Sprite.color = Color.cyan;
+            var emision = Particles.emission;
+            emision.enabled = true;
+            gameObject.GetComponent<AudioSource>().Play();
            
         }
     }
