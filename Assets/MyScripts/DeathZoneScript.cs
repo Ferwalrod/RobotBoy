@@ -10,15 +10,18 @@ public class DeathZoneScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.enabled = false;
+            gameObject.GetComponent<AudioSource>().Play();
             if (GameManager.Instance.CurrentCheckPoint == null)
             {
                 collision.transform.position = Vector3.zero;
-                GameManager.Instance.PlayerLives--;
+                int lives=--GameManager.Instance.PlayerLives;
+                GUIManager.Instance.UpdateLives(lives);
             }
             else
             {
                 collision.transform.position = GameManager.Instance.CurrentCheckPoint.position;
-                GameManager.Instance.PlayerLives--;
+                int lives=--GameManager.Instance.PlayerLives;
+                GUIManager.Instance.UpdateLives(lives);
             }
             collision.enabled = true;
         }
