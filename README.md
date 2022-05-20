@@ -1,2 +1,2 @@
 # RobotBoy
- A simple Unity project for academical purposes
+ A 2D platform videogame made with Unity
